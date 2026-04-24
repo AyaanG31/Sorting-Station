@@ -1,7 +1,6 @@
 // --- TUNING PARAMETERS ---
 unsigned long travel_time = 4000; 
 unsigned long sticker_duration = 1500; 
-unsigned long metal_reset_timer = 0;
 unsigned long good_part_expiry = 0;
 unsigned long rotary_open_ms = 1000; // Time (ms) solenoid O2 stays open
 unsigned long delay_before_open_ms = 1000; // 2 seconds delay
