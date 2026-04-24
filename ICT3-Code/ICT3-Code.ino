@@ -3,7 +3,7 @@ unsigned long travel_time = 4000;
 unsigned long sticker_duration = 1500; 
 unsigned long good_part_expiry = 0;
 unsigned long rotary_open_ms = 1000; // Time (ms) solenoid O2 stays open
-unsigned long delay_before_open_ms = 1000; // 2 seconds delay
+unsigned long delay_before_open_ms = 2000; // 2 seconds delay
 bool inspection_complete = false;
 
 int assem = 0;
@@ -128,7 +128,6 @@ void loop() {
 
     if (r2_busy == 3) {
       digitalWrite(o2, HIGH); // Ensure closed while waiting
-      // Uses the new tuning parameter for adjustable gate duration
       if (current_time - r2_timer > delay_before_open_ms){
         r2_busy = 1;
         r2_timer = current_time;
@@ -153,7 +152,7 @@ void loop() {
 
     lastS2 = feeder;
 
-// --- RULE 3: STICKY INSPECTION ---
+// --- RULE 3: ASSEMBLY INSPECTION ---
     int pegSensing = digitalRead(s3);  
     int ringSensing = digitalRead(s8); 
 
